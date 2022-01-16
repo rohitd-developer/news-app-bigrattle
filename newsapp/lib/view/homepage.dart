@@ -92,6 +92,12 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                     left: 2.w, right: 2.w, top: 1.h, bottom: 1.h),
                 child: TextField(
                   controller: searchController,
+                  onChanged:(val){
+                    if(val.isEmpty)
+                      {
+                        bloc.add(FetchNews());
+                      }
+                  },
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.zero,
                       hintText: 'Search',
